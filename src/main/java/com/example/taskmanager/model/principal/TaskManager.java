@@ -1,5 +1,6 @@
 package com.example.taskmanager.model.principal;
 
+import com.example.taskmanager.exceptions.ProcessException;
 import com.example.taskmanager.listas.SimpleLinkedList;
 import com.example.taskmanager.model.person.User;
 import com.example.taskmanager.model.process.MyProcess;
@@ -23,4 +24,16 @@ public class TaskManager implements Serializable {
     public SimpleLinkedList<MyProcess> getProcesses() {
         return processes;
     }
+
+    public void createProcess(MyProcess process, User common) throws ProcessException {
+        if(processes.contains(process)){
+            throw new ProcessException("The process is Already created inside the application");
+        }
+        else{
+            if ()
+            processes.addEnd(process);
+        }
+    }
+
+
 }

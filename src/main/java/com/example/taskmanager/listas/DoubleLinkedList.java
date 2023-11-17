@@ -100,6 +100,17 @@ public class DoubleLinkedList<T> implements Serializable {
     public int size() {
         return tamanio;
     }
+    public boolean contains(T valor) {
+        NodoDoble<T> actual = cabeza;
+        while (actual != null) {
+            if (actual.dato.equals(valor)) {
+                return true;
+            }
+            actual = actual.siguiente;
+        }
+        return false;
+    }
+
 
     public void addByIndex(int indice, T valor) {
         if (indice < 0 || indice > tamanio) {

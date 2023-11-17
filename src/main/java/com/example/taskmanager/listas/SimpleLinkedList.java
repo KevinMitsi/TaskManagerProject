@@ -11,6 +11,17 @@ public class SimpleLinkedList<T> implements Serializable {
         this.tamanio = 0;
     }
 
+    public boolean contains(T valor) {
+        Nodo<T> actual = cabeza;
+        while (actual != null) {
+            if (actual.dato.equals(valor)) {
+                return true;
+            }
+            actual = actual.siguiente;
+        }
+        return false;
+    }
+
     public void addEnd(T valor) {
         Nodo<T> nuevoNodo = new Nodo<>(valor);
         if (cabeza == null) {
