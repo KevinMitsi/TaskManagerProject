@@ -1,4 +1,4 @@
-package com.example.taskmanager.model.principal;
+package com.example.taskmanager.model.mainClass;
 
 import com.example.taskmanager.exceptions.ProcessException;
 import com.example.taskmanager.listas.SimpleLinkedList;
@@ -25,12 +25,11 @@ public class TaskManager implements Serializable {
         return processes;
     }
 
-    public void createProcess(MyProcess process, User common) throws ProcessException {
+    public void createProcess(MyProcess process) throws ProcessException {
         if(processes.contains(process)){
             throw new ProcessException("The process is Already created inside the application");
         }
         else{
-            if ()
             processes.addEnd(process);
         }
     }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="330.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.taskmanager.controllers.LoginViewController">
+    <children>
+        <VBox alignment="CENTER" spacing="10" />
+        <HBox layoutX="11.0" layoutY="360.0" prefHeight="25.0" prefWidth="295.0">
+            <Button alignment="CENTER" onAction="#registerButtonClick" prefHeight="39.0" prefWidth="117.0" styleClass="register-button" text="Registrarse" />
+        </HBox>
+        <Button layoutX="122.0" layoutY="303.0" onAction="#loginButtonAction" styleClass="login-button" text="Iniciar Sesión" />
+        <PasswordField fx:id="passwordField" layoutX="90.0" layoutY="245.0" promptText="Contraseña" styleClass="rounded-textfield" />
+        <TextField fx:id="usernameField" layoutX="87.0" layoutY="204.0" promptText="Usuario" styleClass="rounded-textfield" />
+        <Label layoutX="84.0" layoutY="8.0" styleClass="title-label" text="Inicio de Sesión">
+            <font>
+                <Font name="System Bold" size="22.0" />
+            </font>
+        </Label>
+    </children>
+
+</AnchorPane>

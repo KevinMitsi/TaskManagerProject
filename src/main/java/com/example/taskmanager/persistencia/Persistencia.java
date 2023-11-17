@@ -1,6 +1,6 @@
 package com.example.taskmanager.persistencia;
 
-import com.example.taskmanager.model.principal.TaskManager;
+import com.example.taskmanager.model.mainClass.TaskManager;
 
 public class Persistencia {
     public static final String RUTA_ARCHIVO_LOG = "src/main/java/com/example/taskmanager/archivo/Log.log";
