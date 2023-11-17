@@ -3,13 +3,13 @@ package com.example.taskmanager.model.person;
 import java.io.Serializable;
 
 public class User implements Serializable {
-    private String name;
+    private String username;
     private String password;
     private Rol rol;
 
 
     public User(String name, String password, Rol rol) {
-        this.name = name;
+        this.username = name;
         this.password = password;
         this.rol = rol;
     }
@@ -18,11 +18,11 @@ public class User implements Serializable {
     }
 
     public String getName() {
-        return name;
+        return username;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.username = name;
     }
 
     public String getPassword() {

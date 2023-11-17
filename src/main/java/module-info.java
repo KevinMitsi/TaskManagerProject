@@ -8,7 +8,7 @@ module com.example.taskmanager {
     exports com.example.taskmanager;
     opens com.example.taskmanager.controllers to javafx.fxml;
     exports com.example.taskmanager.controllers;
-    exports com.example.taskmanager.model.principal;
+    exports com.example.taskmanager.model.mainClass;
     exports com.example.taskmanager.model.person;
     exports com.example.taskmanager.model.process;
     exports com.example.taskmanager.exceptions;

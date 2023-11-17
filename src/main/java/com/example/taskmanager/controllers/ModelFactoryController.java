@@ -1,6 +1,6 @@
 package com.example.taskmanager.controllers;
 
-import com.example.taskmanager.model.principal.TaskManager;
+import com.example.taskmanager.model.mainClass.TaskManager;
 import com.example.taskmanager.persistencia.Persistencia;
 
 import java.io.IOException;
