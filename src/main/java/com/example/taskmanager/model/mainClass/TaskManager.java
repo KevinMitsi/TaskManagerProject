@@ -31,15 +31,6 @@ public class TaskManager implements Serializable {
         return processes;
     }
 
-    public void createProcess(MyProcess process) throws ProcessException {
-        if(processes.contains(process)){
-            throw new ProcessException("The process is Already created inside the application");
-        }
-        else{
-            processes.addEnd(process);
-        }
-    }
-
 
     public Common login(String username, String password) throws UserNotFoundException {
         User user = userMap.get(password);
