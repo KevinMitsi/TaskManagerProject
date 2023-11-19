@@ -1,17 +1,23 @@
 package com.example.taskmanager.model.process;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class Task implements Serializable {
+public class Task implements Serializable, Completable{
     private String id;
     private String description;
     private boolean isMandatory;
+    private LocalDateTime maxTime;
+    private boolean isComplete;
 
-    public Task(String id, String description, boolean isMandatory) {
+    public Task(String id, String description, boolean isMandatory, LocalDateTime maxTime) {
         this.id = id;
         this.description = description;
         this.isMandatory = isMandatory;
+        this.maxTime = maxTime;
+        this.isComplete = false;
     }
 
     public Task() {
@@ -19,6 +25,14 @@ public class Task implements Serializable {
 
     public String getId() {
         return id;
+    }
+
+    public boolean isComplete() {
+        return isComplete;
+    }
+
+    public void setComplete(boolean complete) {
+        isComplete = complete;
     }
 
     public void setId(String id) {
@@ -41,15 +55,33 @@ public class Task implements Serializable {
         isMandatory = mandatory;
     }
 
+    public LocalDateTime getMaxDay() {
+        return maxTime;
+    }
+
+    public void setMaxDay(LocalDateTime maxDay) {
+        this.maxTime = maxDay;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Task task)) return false;
-        return Objects.equals(getId(), task.getId()) || Objects.equals(getDescription(), task.getDescription());
+        return Objects.equals(getId(), task.getId());
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(getId(), getDescription());
+    }
+
+    @Override
+    public void complete() {
+        setComplete(false);
+    }
+
+    public boolean isWithinDuration() {
+        LocalDateTime currentDateTime = LocalDateTime.now();
+        return !currentDateTime.isAfter(maxTime);
     }
 }

@@ -1,14 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.taskmanager.controllers.RegisterViewController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="310.0" prefWidth="264.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.taskmanager.controllers.RegisterViewController">
+    <Label layoutX="58.0" layoutY="36.0" text="Registro de Común">
+        <font>
+            <Font name="System Bold" size="16.0"/>
+        </font>
+    </Label>
+    <Label layoutX="109.0" layoutY="81.0" text="Nombre:"/>
+    <TextField fx:id="tfName" layoutX="58.0" layoutY="99.0" promptText="ingrese su nombre"/>
+    <Label layoutX="113.0" layoutY="143.0" text="Cédula:"/>
+    <TextField fx:id="tfId" layoutX="58.0" layoutY="161.0" promptText="ingrese su cedula"/>
+    <Label layoutX="109.0" layoutY="199.0" text="Email:"/>
+    <TextField fx:id="tfEmail" layoutX="58.0" layoutY="217.0" promptText="ingrese su Email"/>
+    <TextField fx:id="tfUser" layoutX="58.0" layoutY="270.0" promptText="ingrese un usuario"/>
+    <Label layoutX="109.0" layoutY="252.0" text="Usuario:"/>
+    <Label layoutX="99.0" layoutY="309.0" text="Contraseña:"/>
+    <PasswordField fx:id="pfPassword" layoutX="56.0" layoutY="327.0" promptText="ingrese una contraseña"/>
+    <Hyperlink fx:id="hlBack" layoutX="-2.0" onAction="#onBackLinkClick" text="&lt;-" underline="true">
+        <font>
+            <Font size="19.0"/>
+        </font>
+    </Hyperlink>
+    <Button fx:id="btnRegister" layoutX="93.0" layoutY="372.0" mnemonicParsing="false" onAction="#onRegisterButtonClick"
+            text="Registrarse"/>
 </AnchorPane>

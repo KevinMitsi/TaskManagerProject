@@ -13,19 +13,14 @@ public class Common implements Serializable {
     private String email;
     private Map<String, MyProcess> processes;
 
-    private User user;
-
-    public Common(String name, String id, String email, User user) {
+    public Common(String name, String id, String email) {
         this.name = name;
         this.id = id;
         this.email = email;
-        this.user = user;
         this.processes = new HashMap<>();
     }
 
-    public Common() {
-        processes = new HashMap<>();
-    }
+    public Common() {}
 
     public String getName() {
         return name;
@@ -37,14 +32,6 @@ public class Common implements Serializable {
 
     public String getId() {
         return id;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     public void setId(String id) {

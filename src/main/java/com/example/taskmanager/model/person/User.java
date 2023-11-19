@@ -6,12 +6,13 @@ public class User implements Serializable {
     private String username;
     private String password;
     private Rol rol;
+    private Common associated;
 
-
-    public User(String name, String password, Rol rol) {
+    public User(String name, String password, Rol rol, Common associated) {
         this.username = name;
         this.password = password;
         this.rol = rol;
+        this.associated = associated;
     }
 
     public User() {
@@ -23,6 +24,22 @@ public class User implements Serializable {
 
     public void setName(String name) {
         this.username = name;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public Common getAssociated() {
+        return associated;
+    }
+
+    public void setAssociated(Common associated) {
+        this.associated = associated;
     }
 
     public String getPassword() {

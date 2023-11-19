@@ -1,5 +1,7 @@
 package com.example.taskmanager.model.person;
 
-public enum Rol {
+import java.io.Serializable;
+
+public enum Rol implements Serializable {
     ADMIN,COMMON
 }

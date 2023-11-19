@@ -1,8 +1,13 @@
 package com.example.taskmanager.model.person;
 
 import com.example.taskmanager.exceptions.ProcessException;
+import com.example.taskmanager.exceptions.RegisterException;
+import com.example.taskmanager.listas.Cola;
 import com.example.taskmanager.listas.SimpleLinkedList;
+import com.example.taskmanager.model.process.Activity;
 import com.example.taskmanager.model.process.MyProcess;
+import com.example.taskmanager.model.process.Task;
+
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,15 +17,15 @@ public class Admin implements Serializable {
     private String name;
     private String id;
     private User user;
-    private Map<String, Common>employees;
-    private SimpleLinkedList<MyProcess>createdProcesses;
+    private static Map<String, Common> employees;
+    private static SimpleLinkedList<MyProcess> createdProcesses;
 
     public Admin(String name, String id, User user) {
         this.name = name;
         this.id = id;
         this.user = user;
-        this.employees = new HashMap<>();
-        this.createdProcesses = new SimpleLinkedList<>();
+        employees = new HashMap<>();
+        createdProcesses = new SimpleLinkedList<>();
     }
 
     public Admin() {
@@ -79,11 +84,78 @@ public class Admin implements Serializable {
     }
 
     public void assignProcess(Common employee, MyProcess process) throws ProcessException {
-        if(employee.getProcesses().containsValue(process)){
-            throw new ProcessException("Este proceso ya está asignado dentro de este empleado");
+        if (employee.getProcesses().containsValue(process)) {
+            throw new ProcessException("This process is already assigned in your employee");
+        } else {
+            employee.getProcesses().put(String.valueOf(employee.getProcesses().size() + 1), process);
         }
-        else{
-            employee.getProcesses().put(String.valueOf(employee.getProcesses().size()+1),process);
+    }
+
+    public static void addEmployee(Common common) throws RegisterException {
+        if (employees.containsValue(common)) {
+            throw new RegisterException("This employee is already added in your list");
+        } else {
+            employees.put(common.getId(), common);
+        }
+    }
+
+    public static void createProcess(String id, String name) throws ProcessException {
+        MyProcess process = new MyProcess(id, name);
+        if (createdProcesses.contains(process)) {
+            throw new ProcessException("This process is already created in your processes");
+        } else {
+            createdProcesses.addEnd(process);
+        }
+    }
+
+    public static void createActivityGivingName(MyProcess process, Activity activity, Activity newActivity) throws ProcessException {
+        if (process.getTaskList().contains(newActivity)) {
+            throw new ProcessException("This Activity is already inside this process");
+        } else {
+            process.getTaskList().addByIndex(process.getTaskList().getIndex(activity) + 1, newActivity);
+        }
+    }
+
+    public static void createActivityAtLast(MyProcess process, Activity newActivity) throws ProcessException {
+        if (process.getTaskList().contains(newActivity)) {
+            throw new ProcessException("This Activity is already inside this process");
+        } else {
+            process.getTaskList().addEnd(newActivity);
+        }
+    }
+
+    public static void createActivityUsingLast(MyProcess process, Activity lastUsed, Activity newActivity) throws ProcessException {
+        if (process.getTaskList().contains(newActivity)) {
+            throw new ProcessException("This activity is already inside this process");
+        } else {
+            if (!process.getTaskList().contains(lastUsed)) {
+                throw new ProcessException("This last activity does not exist");
+            }
+            process.getTaskList().addByIndex(process.getTaskList().getIndex(lastUsed) + 1, newActivity);
+        }
+    }
+
+    public static void createTaskAtLast(Activity activity, Task last, Task task) throws ProcessException {
+        if (activity.getTasksList().contains(task)) {
+            throw new ProcessException("The task Already exist in the Task Queue");
+        }
+        if(!last.isMandatory() && !task.isMandatory()){
+            throw new ProcessException("There cannot be two non mandatory task together");
+        }
+        activity.getTasksList().enqueue(task);
+    }
+
+    public static void createTaskGivingPosition(Activity activity, Task last,Task task, int position) throws ProcessException {
+        if (position >= 0 && position <= activity.getTasksList().size()) {
+            if (activity.getTasksList().contains(task)){
+                throw new ProcessException("This task is already inside this activity");
+            }
+            if(!last.isMandatory() && !task.isMandatory()){
+                throw new ProcessException("There cannot be two non mandatory task together");
+            }
+            activity.getTasksList().insertAt(task, position);
+        } else {
+            throw new ProcessException("Invalid position to add the task inside the queue");
         }
     }
 }

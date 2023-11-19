@@ -1,8 +1,8 @@
 package com.example.taskmanager;
 
-import com.example.taskmanager.controllers.Alerta;
-import com.example.taskmanager.controllers.LoginViewController;
-import com.example.taskmanager.controllers.RegisterViewController;
+import com.example.taskmanager.controllers.*;
+import com.example.taskmanager.model.person.Common;
+import com.example.taskmanager.model.process.Task;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -24,6 +24,7 @@ public class TaskApp extends Application {
             event.consume();
             intentarCerrar();
         });
+        ModelFactoryController singleton = ModelFactoryController.getInstance();
         inicializarLogin();
     }
     private void intentarCerrar() {
@@ -55,6 +56,25 @@ public class TaskApp extends Application {
         stage.setTitle("Register");
         stage.setScene(scene);
         stage.show();
+    }
 
+    public void abrirPanelAdmin() {
+
+    }
+
+    public void abrirUserPanel(Common loggedCommon) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(TaskApp.class.getResource("userPanel-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        UserPanelViewController controller = fxmlLoader.getController();
+        controller.setMain(this, loggedCommon);
+        stage.setTitle("Register");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void abriBuscarTarea() {
+    }
+
+    public void abrirExpandirTarea(Task value) {
     }
 }

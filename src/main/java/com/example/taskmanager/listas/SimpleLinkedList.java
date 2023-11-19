@@ -1,16 +1,42 @@
 package com.example.taskmanager.listas;
 
 import java.io.Serializable;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
-public class SimpleLinkedList<T> implements Serializable {
+public class SimpleLinkedList<T> implements Serializable, Iterable<T>{
     private Nodo<T> cabeza;
-    private int tamanio; // Tamaño de la lista
+    private int size; // Tamaño de la lista
 
     public SimpleLinkedList() {
         this.cabeza = null;
-        this.tamanio = 0;
+        this.size = 0;
+    }
+    // Implementación de la interfaz Iterable
+    @Override
+    public Iterator<T> iterator() {
+        return new LinkedListIterator();
     }
 
+    // Clase interna que implementa la interfaz Iterator
+    private class LinkedListIterator implements Iterator<T> {
+        private Nodo<T> actual = cabeza;
+
+        @Override
+        public boolean hasNext() {
+            return actual != null;
+        }
+
+        @Override
+        public T next() {
+            if (!hasNext()) {
+                throw new NoSuchElementException();
+            }
+            T valor = actual.dato;
+            actual = actual.siguiente;
+            return valor;
+        }
+    }
     public boolean contains(T valor) {
         Nodo<T> actual = cabeza;
         while (actual != null) {
@@ -33,21 +59,21 @@ public class SimpleLinkedList<T> implements Serializable {
             }
             actual.siguiente = nuevoNodo;
         }
-        tamanio++;
+        size++;
     }
 
     public void addBeginning(T valor) {
         Nodo<T> nuevoNodo = new Nodo<>(valor);
         nuevoNodo.siguiente = cabeza;
         cabeza = nuevoNodo;
-        tamanio++;
+        size++;
     }
 
     public void remove(T valor) {
         if (cabeza != null) {
             if (cabeza.dato.equals(valor)) {
                 cabeza = cabeza.siguiente;
-                tamanio--;
+                size--;
                 return;
             }
 
@@ -58,13 +84,13 @@ public class SimpleLinkedList<T> implements Serializable {
 
             if (actual.siguiente != null) {
                 actual.siguiente = actual.siguiente.siguiente;
-                tamanio--;
+                size--;
             }
         }
     }
 
     public T getByIndex(int indice) {
-        if (indice < 0 || indice >= tamanio) {
+        if (indice < 0 || indice >= size) {
             throw new IndexOutOfBoundsException("Índice fuera de rango");
         }
 
@@ -74,6 +100,31 @@ public class SimpleLinkedList<T> implements Serializable {
         }
 
         return actual.dato;
+    }
+
+    public void add(int posicion, T elemento) {
+        if (posicion < 0 || posicion > size) {
+            throw new IndexOutOfBoundsException("Posición fuera de límites");
+        }
+
+        Nodo<T> nuevoNodo = new Nodo<>(elemento);
+
+        if (posicion == 0) {
+            // Insertar al principio
+            nuevoNodo.siguiente = cabeza;
+            cabeza = nuevoNodo;
+        } else {
+            // Insertar en una posición diferente de la primera
+            Nodo<T> actual = cabeza;
+            for (int i = 0; i < posicion - 1; i++) {
+                actual = actual.siguiente;
+            }
+
+            nuevoNodo.siguiente = actual.siguiente;
+            actual.siguiente = nuevoNodo;
+        }
+
+        size++;
     }
 
     public void print() {
@@ -86,6 +137,6 @@ public class SimpleLinkedList<T> implements Serializable {
     }
 
     public int size() {
-        return tamanio;
+        return size;
     }
 }

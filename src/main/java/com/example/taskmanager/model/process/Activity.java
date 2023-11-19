@@ -5,22 +5,32 @@ import com.example.taskmanager.listas.Cola;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class Activity implements Serializable {
+public class Activity implements Serializable, Completable{
     private String id;
 
     private String description;
     private boolean isMandatory;
-    private final Cola<Task> tasksList;
+    private Cola<Task> tasksList;
+    private boolean isComplete;
 
     public Activity(String id, String description, boolean isMandatory) {
         this.id = id;
         this.tasksList = new Cola<>();
         this.description = description;
         this.isMandatory = isMandatory;
+        this.isComplete = false;
     }
 
     public Activity() {
         tasksList=new Cola<>();
+    }
+
+    public boolean isComplete() {
+        return isComplete;
+    }
+
+    public void setComplete(boolean complete) {
+        isComplete = complete;
     }
 
     public String getId() {
@@ -51,6 +61,10 @@ public class Activity implements Serializable {
         return description;
     }
 
+    public void setTasksList(Cola<Task> tasksList) {
+        this.tasksList = tasksList;
+    }
+
     public void setDescription(String description) {
         this.description = description;
     }
@@ -61,5 +75,18 @@ public class Activity implements Serializable {
 
     public void setMandatory(boolean mandatory) {
         isMandatory = mandatory;
+    }
+
+    @Override
+    public void complete() {
+        boolean todasCompletas = true;
+
+        for (Task tarea : getTasksList()) {
+            if (!tarea.isComplete()) {
+                todasCompletas = false;
+                break;  // No es necesario seguir verificando si una tarea no está completa
+            }
+        }
+        setComplete(todasCompletas);
     }
 }
