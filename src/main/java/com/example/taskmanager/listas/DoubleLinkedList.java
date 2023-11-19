@@ -1,8 +1,10 @@
 package com.example.taskmanager.listas;
 
 import java.io.Serializable;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
-public class DoubleLinkedList<T> implements Serializable {
+public class DoubleLinkedList<T> implements Serializable, Iterable<T> {
     private NodoDoble<T> cabeza;
     private NodoDoble<T> cola;
     private int tamanio;
@@ -12,6 +14,32 @@ public class DoubleLinkedList<T> implements Serializable {
         this.cola = null;
         this.tamanio = 0;
     }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new DoubleLinkedListIterator();
+    }
+
+    // Clase interna que implementa la interfaz Iterator
+    private class DoubleLinkedListIterator implements Iterator<T> {
+        private NodoDoble<T> actual = cabeza;
+
+        @Override
+        public boolean hasNext() {
+            return actual != null;
+        }
+
+        @Override
+        public T next() {
+            if (!hasNext()) {
+                throw new NoSuchElementException();
+            }
+            T valor = actual.dato;
+            actual = actual.siguiente;
+            return valor;
+        }
+    }
+
 
     public void addEnd(T valor) {
         NodoDoble<T> nuevoNodoDoble = new NodoDoble<>(valor);

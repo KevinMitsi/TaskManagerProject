@@ -5,20 +5,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1215495d-8030-4154-8007-1a8ae570431f" name="Changes" comment="new Modeling for the project has been addes">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/Alerta.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/LoginViewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/RegisterViewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/taskmanager/login-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/taskmanager/register-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/archivo/Log.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/archivo/model.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/archivo/model.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/AdminPanelViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/AssignProceesViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/CreateActivityViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/CreateTaskViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/UserPanelViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/exceptions/RegisterException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/model/process/Completable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/taskmanager/adminPanel-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/taskmanager/assignProcees-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/taskmanager/createActivity-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/taskmanager/createTask-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/taskmanager/userPanel-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/TaskApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/TaskApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/LoginViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/LoginViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/ModelFactoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/ModelFactoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/RegisterViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/RegisterViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/exceptions/UserNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/exceptions/UserNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/listas/Cola.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/listas/Cola.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/listas/DoubleLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/listas/DoubleLinkedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/listas/SimpleLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/listas/SimpleLinkedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/model/mainClass/TaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/model/mainClass/TaskManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/model/person/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/model/person/Admin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/model/person/Common.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/model/person/Common.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/model/person/Rol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/model/person/Rol.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/model/person/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/model/person/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/model/principal/TaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/model/mainClass/TaskManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/persistencia/Persistencia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/persistencia/Persistencia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/model/process/Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/model/process/Activity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/model/process/MyProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/model/process/MyProcess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/model/process/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/model/process/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/taskmanager/register-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/taskmanager/register-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,9 +48,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Interface" />
         <option value="FxmlFile" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -49,17 +68,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Kevinsbranch&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "Kevinsbranch",
+    "ignore.virus.scanning.warn.message": "true",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.example.taskmanager.exceptions" />
@@ -94,6 +115,7 @@
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="new Modeling for the project has been addes" />
     <option name="LAST_COMMIT_MESSAGE" value="new Modeling for the project has been addes" />
   </component>
