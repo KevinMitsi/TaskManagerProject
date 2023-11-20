@@ -3,6 +3,7 @@ module com.example.taskmanager {
     requires javafx.fxml;
     requires java.desktop;
     requires java.logging;
+    requires java.mail;
 
     opens com.example.taskmanager to javafx.fxml;
     exports com.example.taskmanager;

@@ -7,6 +7,7 @@ import com.example.taskmanager.model.process.Activity;
 import com.example.taskmanager.model.process.Completable;
 import com.example.taskmanager.model.process.MyProcess;
 import com.example.taskmanager.model.process.Task;
+import com.example.taskmanager.threads.EmailThread;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -107,9 +108,7 @@ public class UserPanelViewController {
             Alerta.saltarAlertaError("Debe seleccionar una preferencia de notificación en el menú superior izquierdo");
         }
         else {
-            if (rmiEmail.isSelected()){
 
-            }
             if (rmiHere.isSelected()){
                 for(Task task : tasksForNotification){
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
