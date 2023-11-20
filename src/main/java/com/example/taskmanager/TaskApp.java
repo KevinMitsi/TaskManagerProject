@@ -81,8 +81,14 @@ public class TaskApp extends Application {
     public void abriBuscarTarea() {
     }
 
-    public void abrirExpandirTarea(Task value) {
-
+    public void abrirExpandirTarea(Task value, Common logged) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(TaskApp.class.getResource("expandirTarea-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        ExpandirTareaViewController controller = fxmlLoader.getController();
+        controller.setMain(this, value,logged);
+        stage.setTitle("Agregar Actividad");
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void abrirAgregarActividad(Admin admin) throws IOException {
@@ -153,5 +159,8 @@ public class TaskApp extends Application {
         stage.setTitle("Cambiar actividades");
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void abrirBuscarActividad() {
     }
 }
