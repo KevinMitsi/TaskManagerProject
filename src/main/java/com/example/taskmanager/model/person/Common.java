@@ -101,4 +101,10 @@ public class Common implements Serializable {
         }
     }
 
+    @Override
+    public String toString() {
+        return name +" "+id;
+
+
+    }
 }

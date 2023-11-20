@@ -116,18 +116,14 @@ class AdminTest {
         Activity activity = new Activity("A1", "Activity 1",true);
         Task last = new Task("T1", "Task 1", true,LocalDateTime.now());
         Task task = new Task("T2", "Task 2", false,LocalDateTime.now());
-        int position = 0;
-        assertDoesNotThrow(() -> admin.createTaskGivingPosition(activity, last, task, position));
+        activity.getTasksList().enqueue(last);
+        assertDoesNotThrow(() -> admin.createTaskGivingPosition(activity, last, task));
 
         // Test when the task already exists in the activity
-        assertThrows(ProcessException.class, () -> admin.createTaskGivingPosition(activity, last, task, position));
+        assertThrows(ProcessException.class, () -> admin.createTaskGivingPosition(activity, last, task));
         activity.getTasksList().enqueue(task);
         // Test when there are two non-mandatory tasks together
         Task nonMandatoryTask = new Task("T3", "Task 3", false,LocalDateTime.now());
-        assertThrows(ProcessException.class, () -> admin.createTaskGivingPosition(activity, task, nonMandatoryTask, position));
-
-        // Test invalid position
-        int invalidPosition = 10;
-        assertThrows(ProcessException.class, () -> admin.createTaskGivingPosition(activity, last, task, invalidPosition));
+        assertThrows(ProcessException.class, () -> admin.createTaskGivingPosition(activity, task, nonMandatoryTask));
     }
 }

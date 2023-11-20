@@ -18,10 +18,10 @@ public class LoginViewController {
         main.abrirRegister();
     }
 
-    public void loginButtonAction() {
+    public void loginButtonAction() throws IOException {
         if (isEmptySpaces()){
             if (usernameField.getText().equals("admin") && passwordField.getText().equals("admin123")) {
-                main.abrirPanelAdmin();
+                main.abrirPanelAdmin(singleton.getAdmin());
             }
             else {
                 try {
