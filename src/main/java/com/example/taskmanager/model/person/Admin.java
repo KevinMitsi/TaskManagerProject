@@ -16,14 +16,12 @@ import java.util.Objects;
 public class Admin implements Serializable {
     private String name;
     private String id;
-    private User user;
-    private static Map<String, Common> employees;
-    private static SimpleLinkedList<MyProcess> createdProcesses;
+    private  Map<String, Common> employees;
+    private  SimpleLinkedList<MyProcess> createdProcesses;
 
-    public Admin(String name, String id, User user) {
+    public Admin(String name, String id) {
         this.name = name;
         this.id = id;
-        this.user = user;
         employees = new HashMap<>();
         createdProcesses = new SimpleLinkedList<>();
     }
@@ -45,14 +43,6 @@ public class Admin implements Serializable {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     public Map<String, Common> getEmployees() {
@@ -83,7 +73,7 @@ public class Admin implements Serializable {
         return Objects.hash(getId());
     }
 
-    public void assignProcess(Common employee, MyProcess process) throws ProcessException {
+    public  void assignProcess(Common employee, MyProcess process) throws ProcessException {
         if (employee.getProcesses().containsValue(process)) {
             throw new ProcessException("This process is already assigned in your employee");
         } else {
@@ -91,7 +81,7 @@ public class Admin implements Serializable {
         }
     }
 
-    public static void addEmployee(Common common) throws RegisterException {
+    public  void addEmployee(Common common) throws RegisterException {
         if (employees.containsValue(common)) {
             throw new RegisterException("This employee is already added in your list");
         } else {
@@ -99,7 +89,7 @@ public class Admin implements Serializable {
         }
     }
 
-    public static void createProcess(String id, String name) throws ProcessException {
+    public  void createProcess(String id, String name) throws ProcessException {
         MyProcess process = new MyProcess(id, name);
         if (createdProcesses.contains(process)) {
             throw new ProcessException("This process is already created in your processes");
@@ -108,7 +98,7 @@ public class Admin implements Serializable {
         }
     }
 
-    public static void createActivityGivingName(MyProcess process, Activity activity, Activity newActivity) throws ProcessException {
+    public  void createActivityGivingName(MyProcess process, Activity activity, Activity newActivity) throws ProcessException {
         if (process.getTaskList().contains(newActivity)) {
             throw new ProcessException("This Activity is already inside this process");
         } else {
@@ -116,7 +106,7 @@ public class Admin implements Serializable {
         }
     }
 
-    public static void createActivityAtLast(MyProcess process, Activity newActivity) throws ProcessException {
+    public  void createActivityAtLast(MyProcess process, Activity newActivity) throws ProcessException {
         if (process.getTaskList().contains(newActivity)) {
             throw new ProcessException("This Activity is already inside this process");
         } else {
@@ -124,7 +114,7 @@ public class Admin implements Serializable {
         }
     }
 
-    public static void createActivityUsingLast(MyProcess process, Activity lastUsed, Activity newActivity) throws ProcessException {
+    public  void createActivityUsingLast(MyProcess process, Activity lastUsed, Activity newActivity) throws ProcessException {
         if (process.getTaskList().contains(newActivity)) {
             throw new ProcessException("This activity is already inside this process");
         } else {
@@ -135,7 +125,7 @@ public class Admin implements Serializable {
         }
     }
 
-    public static void createTaskAtLast(Activity activity, Task last, Task task) throws ProcessException {
+    public void createTaskAtLast(Activity activity, Task last, Task task) throws ProcessException {
         if (activity.getTasksList().contains(task)) {
             throw new ProcessException("The task Already exist in the Task Queue");
         }
@@ -145,17 +135,13 @@ public class Admin implements Serializable {
         activity.getTasksList().enqueue(task);
     }
 
-    public static void createTaskGivingPosition(Activity activity, Task last,Task task, int position) throws ProcessException {
-        if (position >= 0 && position <= activity.getTasksList().size()) {
+    public void createTaskGivingPosition(Activity activity, Task last,Task task) throws ProcessException {
             if (activity.getTasksList().contains(task)){
                 throw new ProcessException("This task is already inside this activity");
             }
             if(!last.isMandatory() && !task.isMandatory()){
                 throw new ProcessException("There cannot be two non mandatory task together");
             }
-            activity.getTasksList().insertAt(task, position);
-        } else {
-            throw new ProcessException("Invalid position to add the task inside the queue");
-        }
+            activity.getTasksList().insertAt(task, activity.getTasksList().getIndex(last));
     }
 }

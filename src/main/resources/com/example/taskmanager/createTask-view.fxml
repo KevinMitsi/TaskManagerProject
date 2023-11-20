@@ -1,14 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.taskmanager.controllers.CreateTaskViewController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="429.0" prefWidth="273.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.taskmanager.controllers.CreateTaskViewController">
+    <Label layoutX="78.0" layoutY="12.0" text="Crear la Tarea">
+        <font>
+            <Font name="System Bold" size="18.0" />
+        </font>
+    </Label>
+    <Hyperlink layoutY="2.0" onAction="#onVolverClick" text="Volver" underline="true" />
+    <TextField fx:id="tfDescrpcion" layoutX="12.0" layoutY="73.0" prefHeight="26.0" prefWidth="246.0" promptText="Escriba la descripcion de la actividad" />
+    <Label layoutX="65.0" layoutY="55.0" text="Descripción de la tarea" />
+    <ComboBox fx:id="cbObligatoia" layoutX="61.0" layoutY="124.0" prefWidth="150.0" promptText="elija una opcion" />
+    <Label layoutX="93.0" layoutY="106.0" text="¿Es obligatoria?" />
+    <RadioButton fx:id="rbPosicion" layoutX="71.0" layoutY="318.0" mnemonicParsing="false" onAction="#rbPosicionClic" text="Poscición">
+        <toggleGroup>
+            <ToggleGroup fx:id="opcionAgregado" />
+        </toggleGroup>
+    </RadioButton>
+    <Label layoutX="73.0" layoutY="294.0" text="Elija la forma de agregar:" />
+    <RadioButton fx:id="rbEnd" layoutX="151.0" layoutY="318.0" mnemonicParsing="false" onAction="#rbFinalClick" text="Final" toggleGroup="$opcionAgregado" />
+    <Button layoutX="118.0" layoutY="389.0" mnemonicParsing="false" onAction="#onCrearClick" text="Crear" />
+    <ComboBox fx:id="cbTasks" disable="true" layoutX="11.0" layoutY="349.0" prefHeight="26.0" prefWidth="246.0" promptText="Elija la actividad" />
+    <ComboBox fx:id="cbActividades" layoutX="23.0" layoutY="258.0" prefHeight="26.0" prefWidth="222.0" promptText="elija una opcion" />
+    <Label layoutX="56.0" layoutY="229.0" text="¿En qué Actividad la agregará?" />
+   <Label layoutX="97.0" layoutY="162.0" text="Plazo máximo" />
+   <DatePicker fx:id="dpMax" layoutX="47.0" layoutY="189.0" />
 </AnchorPane>

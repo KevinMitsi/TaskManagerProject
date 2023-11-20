@@ -1,6 +1,7 @@
 package com.example.taskmanager;
 
 import com.example.taskmanager.controllers.*;
+import com.example.taskmanager.model.person.Admin;
 import com.example.taskmanager.model.person.Common;
 import com.example.taskmanager.model.process.Task;
 import javafx.application.Application;
@@ -10,7 +11,6 @@ import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Objects;
 
 public class TaskApp extends Application {
     private Stage stage;
@@ -58,8 +58,14 @@ public class TaskApp extends Application {
         stage.show();
     }
 
-    public void abrirPanelAdmin() {
-
+    public void abrirPanelAdmin(Admin admin) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(TaskApp.class.getResource("adminPanel-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        AdminPanelViewController controller = fxmlLoader.getController();
+        controller.setMain(this, admin);
+        stage.setTitle("Panel Admin");
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void abrirUserPanel(Common loggedCommon) throws IOException {
@@ -67,7 +73,7 @@ public class TaskApp extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         UserPanelViewController controller = fxmlLoader.getController();
         controller.setMain(this, loggedCommon);
-        stage.setTitle("Register");
+        stage.setTitle("Panel "+loggedCommon.getName());
         stage.setScene(scene);
         stage.show();
     }
@@ -76,5 +82,76 @@ public class TaskApp extends Application {
     }
 
     public void abrirExpandirTarea(Task value) {
+
+    }
+
+    public void abrirAgregarActividad(Admin admin) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(TaskApp.class.getResource("agregarActividad-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        AgregarActividadViewController controller = fxmlLoader.getController();
+        controller.setMain(this, admin);
+        stage.setTitle("Agregar Actividad");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void abrirAgregarTarea(Admin admin) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(TaskApp.class.getResource("agregarTarea-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        AgregarTareaViewController controller = fxmlLoader.getController();
+        controller.setMain(this, admin);
+        stage.setTitle("Agregar Tarea");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void abrirAgregarProcess(Admin admin) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(TaskApp.class.getResource("agregarProceso-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        AgregarProcesoViewController controller = fxmlLoader.getController();
+        controller.setMain(this, admin);
+        stage.setTitle("Agregar Proceso");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void abrirCambiarActividades(Admin admin) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(TaskApp.class.getResource("cambiar-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        CambiarViewController controller = fxmlLoader.getController();
+        controller.setMain(this, admin);
+        stage.setTitle("Cambiar actividades");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void abrirCreateActivity(Common value, Admin admin) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(TaskApp.class.getResource("createActivity-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        CreateActivityViewController controller = fxmlLoader.getController();
+        controller.setMain(this, admin, value);
+        stage.setTitle("Cambiar actividades");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void abrirCreateTask(Common value, Admin admin) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(TaskApp.class.getResource("createTask-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        CreateTaskViewController controller = fxmlLoader.getController();
+        controller.setMain(this, admin, value);
+        stage.setTitle("Cambiar actividades");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void abrirCreateProcess(Common value, Admin admin) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(TaskApp.class.getResource("createProcess-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        CreateProcessViewController controller = fxmlLoader.getController();
+        controller.setMain(this, admin, value);
+        stage.setTitle("Cambiar actividades");
+        stage.setScene(scene);
+        stage.show();
     }
 }

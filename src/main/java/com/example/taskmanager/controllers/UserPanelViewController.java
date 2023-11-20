@@ -32,6 +32,8 @@ public class UserPanelViewController {
     public void setMain(TaskApp taskApp, Common loggedCommon) {
         this.main =taskApp;
         this.loggedCommon = loggedCommon;
+        lblBienvenida.setText("Bienvenido, " + loggedCommon.getName());
+        fillTreeView();
     }
 
     public void onRequestMenu() {
@@ -50,13 +52,11 @@ public class UserPanelViewController {
     public void onSearchMenuItem() {
         main.abriBuscarTarea();
     }
-    @FXML
-    void initialize() {
-        lblBienvenida.setText("Bienvenido, " + loggedCommon.getName());
-        fillTreeView();
-    }
+
 
     private void fillTreeView() {
+        TreeItem<Completable> root = new TreeItem<>(new MyProcess("main","MainComletables"));
+        treeProcess.setRoot(root);
         for (MyProcess process : loggedCommon.getProcesses().values()) {
             TreeItem<Completable> processItem = createCompletableTreeItem(process);
 
@@ -70,7 +70,6 @@ public class UserPanelViewController {
 
                 processItem.getChildren().add(activityItem);
             }
-
             treeProcess.getRoot().getChildren().add(processItem);
         }
     }

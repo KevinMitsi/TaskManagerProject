@@ -1,11 +1,12 @@
 package com.example.taskmanager.model.person;
 
+import com.example.taskmanager.listas.DoubleLinkedList;
+import com.example.taskmanager.model.process.Activity;
 import com.example.taskmanager.model.process.MyProcess;
+import com.example.taskmanager.model.process.Task;
 
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public class Common implements Serializable {
     private String name;
@@ -64,5 +65,46 @@ public class Common implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(getId(), getEmail());
+    }
+
+    public List<Task> searchTask(String word) {
+        List<Task> result = new ArrayList<>();
+        for (MyProcess process : processes.values()) {
+            searchTaskRecursive(process, word, result);
+        }
+        return result;
+    }
+
+    private void searchTaskRecursive(MyProcess process, String word, List<Task> result) {
+        for (Activity activities : process.getTaskList()) {
+            for (Task task : activities.getTasksList()) {
+                if (task.getDescription().contains(word)) {
+                    result.add(task);
+                }
+            }
+        }
+    }
+
+    public List<Activity> searchActivity(String word) {
+        List<Activity> result = new ArrayList<>();
+        for (MyProcess process : processes.values()) {
+            searchActivityRecursive(process, word, result);
+        }
+        return result;
+    }
+
+    private void searchActivityRecursive(MyProcess process, String word, List<Activity> result) {
+        for (Activity activities : process.getTaskList()) {
+            if (activities.getDescription().contains(word)) {
+                result.add(activities);
+            }
+        }
+    }
+
+    @Override
+    public String toString() {
+        return name +" "+id;
+
+
     }
 }

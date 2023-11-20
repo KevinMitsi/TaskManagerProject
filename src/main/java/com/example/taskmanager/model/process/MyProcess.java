@@ -1,5 +1,7 @@
 package com.example.taskmanager.model.process;
 
+import com.example.taskmanager.controllers.Alerta;
+import com.example.taskmanager.exceptions.CompleteException;
 import com.example.taskmanager.listas.DoubleLinkedList;
 
 import java.io.Serializable;
@@ -57,15 +59,21 @@ public class MyProcess implements Serializable, Completable {
         return Objects.hash(getId(), getTaskList());
     }
 
+
     @Override
-    public void complete() {
+    public String toString() {
+        return nombre;
+    }
+
+    @Override
+    public void complete() throws CompleteException {
         boolean complete = true;
         for(Activity activity:getTaskList()){
             if (!activity.isComplete()){
-                complete = false;
-                break;
+                throw new CompleteException("Is impossible to complete the process because there are activities that are not completed");
             }
         }
+        Alerta.saltarAlertaInformacion("You completed the activity properly");
         setComplete(complete);
     }
 }

@@ -71,7 +71,23 @@ public class Cola<T> implements Serializable, Iterable<T>{
         }
         return false;
     }
+    public int getIndex(T elemento) {
+        int index = 0;
+        for (T currentElement : this) {
+            if (currentElement.equals(elemento)) {
+                return index;
+            }
+            index++;
+        }
+        throw new NoSuchElementException("Elemento no encontrado en la cola");
+    }
 
+    public T getLast() {
+        if (isEmpty()) {
+            throw new NoSuchElementException("La cola está vacía");
+        }
+        return lista.getByIndex(lista.size() - 1);
+    }
     // Verificar si la cola está vacía
     public boolean isEmpty() {
         return lista.size() == 0;

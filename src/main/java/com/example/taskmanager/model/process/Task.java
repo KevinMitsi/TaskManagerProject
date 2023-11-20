@@ -80,6 +80,11 @@ public class Task implements Serializable, Completable{
         setComplete(false);
     }
 
+    @Override
+    public String toString() {
+        return description;
+    }
+
     public boolean isWithinDuration() {
         LocalDateTime currentDateTime = LocalDateTime.now();
         return !currentDateTime.isAfter(maxTime);

@@ -1,6 +1,7 @@
 package com.example.taskmanager.model.process;
 
 
+import com.example.taskmanager.exceptions.CompleteException;
 import com.example.taskmanager.listas.Cola;
 import java.io.Serializable;
 import java.util.Objects;
@@ -78,15 +79,19 @@ public class Activity implements Serializable, Completable{
     }
 
     @Override
-    public void complete() {
+    public void complete() throws CompleteException {
         boolean todasCompletas = true;
 
         for (Task tarea : getTasksList()) {
             if (!tarea.isComplete()) {
-                todasCompletas = false;
-                break;  // No es necesario seguir verificando si una tarea no está completa
+                throw new CompleteException("Is impossible to complete the activity because there are non completed tasks");
             }
         }
         setComplete(todasCompletas);
+    }
+
+    @Override
+    public String toString() {
+        return description;
     }
 }
