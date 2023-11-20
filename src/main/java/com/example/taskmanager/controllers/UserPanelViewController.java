@@ -1,7 +1,6 @@
 package com.example.taskmanager.controllers;
 
 import com.example.taskmanager.TaskApp;
-import com.example.taskmanager.model.mainClass.TaskManager;
 import com.example.taskmanager.model.person.Common;
 import com.example.taskmanager.model.process.Activity;
 import com.example.taskmanager.model.process.Completable;
@@ -9,16 +8,13 @@ import com.example.taskmanager.model.process.MyProcess;
 import com.example.taskmanager.model.process.Task;
 import com.example.taskmanager.threads.EmailThread;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.*;
-import javafx.scene.input.ContextMenuEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class UserPanelViewController {
@@ -73,7 +69,7 @@ public class UserPanelViewController {
                 for (Task task : activity.getTasksList()) {
                     TreeItem<Completable> taskItem = createCompletableTreeItem(task);
                     activityItem.getChildren().add(taskItem);
-                    if (task.isDueSoon()){
+                    if (task.isDueSoon()&&!task.isComplete()){
                         tasksForNotification.add(task);
                     }
                 }
@@ -88,21 +84,20 @@ public class UserPanelViewController {
 
         // Simular deshabilitar el nodo si está completado
         if (completable instanceof Task && ((Task) completable).isComplete()) {
-            treeItem.setGraphic(createDisabledGraphic(completable.toString()));
+            treeItem.setGraphic(createDisabledGraphic());
         } else if (completable instanceof Activity && ((Activity) completable).isComplete()) {
-            treeItem.setGraphic(createDisabledGraphic(completable.toString()));
+            treeItem.setGraphic(createDisabledGraphic());
         } else if (completable instanceof MyProcess && ((MyProcess) completable).isComplete()) {
-            treeItem.setGraphic(createDisabledGraphic(completable.toString()));
+            treeItem.setGraphic(createDisabledGraphic());
         }
         return treeItem;
     }
 
 
 
-    private Node createDisabledGraphic(String text) {
-        Text textNode = new Text(text);
+    private Node createDisabledGraphic() {
+        Text textNode = new Text("Completado");
         textNode.setFill(Color.GREEN);
-        textNode.setStrikethrough(true);
         return textNode;
     }
 
@@ -134,5 +129,20 @@ public class UserPanelViewController {
 
     public void onSearchMenuItem1() {
         main.abrirBuscarActividad();
+    }
+
+    public void onMouseCLicked(MouseEvent mouseEvent) throws IOException {
+        TreeItem<Completable>selected = treeProcess.getSelectionModel().getSelectedItem();
+        if (selected!=null){
+            if (selected.getValue() instanceof Task){
+                main.abrirExpandirTarea((Task)selected.getValue(),loggedCommon);
+            }
+            if (selected.getValue() instanceof Activity){
+                main.abrirExpandirActividad((Activity)selected.getValue(),loggedCommon);
+            }
+            if (selected.getValue()instanceof MyProcess){
+                main.abrirExpandirProceso((MyProcess)selected.getValue(),loggedCommon);
+            }
+        }
     }
 }

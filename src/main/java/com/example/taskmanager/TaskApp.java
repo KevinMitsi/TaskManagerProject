@@ -3,6 +3,8 @@ package com.example.taskmanager;
 import com.example.taskmanager.controllers.*;
 import com.example.taskmanager.model.person.Admin;
 import com.example.taskmanager.model.person.Common;
+import com.example.taskmanager.model.process.Activity;
+import com.example.taskmanager.model.process.MyProcess;
 import com.example.taskmanager.model.process.Task;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -162,5 +164,26 @@ public class TaskApp extends Application {
     }
 
     public void abrirBuscarActividad() {
+    }
+
+    public void abrirExpandirActividad(Activity value, Common loggedCommon) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(TaskApp.class.getResource("expandirActividad-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        ExpandirActividadViewController controller = fxmlLoader.getController();
+        controller.setMain(this, value,loggedCommon);
+        stage.setTitle("Agregar Actividad");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void abrirExpandirProceso(MyProcess value, Common loggedCommon) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(TaskApp.class.getResource("expandirProceso-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        ExpandirProcesoViewController controller = fxmlLoader.getController();
+        controller.setMain(this, value,loggedCommon);
+        stage.setTitle("Agregar Actividad");
+        stage.setScene(scene);
+        stage.show();
+
     }
 }

@@ -31,6 +31,14 @@ public class MyProcess implements Serializable, Completable {
         this.id = id;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
     public void setTaskList(DoubleLinkedList<Activity> taskList) {
         this.taskList = taskList;
     }
