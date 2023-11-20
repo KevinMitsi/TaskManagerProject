@@ -89,4 +89,10 @@ public class Task implements Serializable, Completable{
         LocalDateTime currentDateTime = LocalDateTime.now();
         return !currentDateTime.isAfter(maxTime);
     }
+
+    public boolean isDueSoon() {
+        LocalDateTime now = LocalDateTime.now();
+        return !isComplete() && getMaxDay().isBefore(now.plusDays(1)); // Considera "próximo día" como un límite para estar "a punto de vencer"
+    }
+
 }

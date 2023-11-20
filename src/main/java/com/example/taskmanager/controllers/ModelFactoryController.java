@@ -44,7 +44,7 @@ public class ModelFactoryController {
         if (taskManager == null) {
             System.out.println("es null");
             inicializarDatos();
-            guardarResourceXML();
+           // guardarResourceXML();
             guardarResourceBinario();
         }
         //Registrar la accion de incio de sesi�n

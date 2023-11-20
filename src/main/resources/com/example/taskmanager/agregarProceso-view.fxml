@@ -10,7 +10,7 @@
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.taskmanager.controllers.AgregarProcesoViewController"
-            prefHeight="400.0" prefWidth="600.0">
+            prefHeight="135.0" prefWidth="460.0">
     <children>
         <ComboBox fx:id="cbOpciones" layoutX="155.0" layoutY="55.0" prefWidth="150.0" promptText="elija el empleado" />
         <Hyperlink layoutY="3.0" onAction="#onVolverClick" text="Volver" underline="true" />

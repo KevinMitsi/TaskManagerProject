@@ -126,13 +126,18 @@ public class Admin implements Serializable {
     }
 
     public void createTaskAtLast(Activity activity, Task last, Task task) throws ProcessException {
-        if (activity.getTasksList().contains(task)) {
+        if (last==null){
+            activity.getTasksList().enqueue(task);
+        }
+        if (last!=null && activity.getTasksList().contains(task)) {
             throw new ProcessException("The task Already exist in the Task Queue");
         }
-        if(!last.isMandatory() && !task.isMandatory()){
+        if(last!=null&&!last.isMandatory() && !task.isMandatory()){
             throw new ProcessException("There cannot be two non mandatory task together");
         }
-        activity.getTasksList().enqueue(task);
+        if (last!=null) {
+            activity.getTasksList().enqueue(task);
+        }
     }
 
     public void createTaskGivingPosition(Activity activity, Task last,Task task) throws ProcessException {
