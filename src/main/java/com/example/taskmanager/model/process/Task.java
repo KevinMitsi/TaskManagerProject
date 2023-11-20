@@ -77,7 +77,7 @@ public class Task implements Serializable, Completable{
 
     @Override
     public void complete() {
-        setComplete(false);
+        setComplete(true);
     }
 
     @Override
