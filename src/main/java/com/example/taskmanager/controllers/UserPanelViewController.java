@@ -17,6 +17,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 public class UserPanelViewController {
     public TreeView<Completable> treeProcess;
@@ -28,6 +30,7 @@ public class UserPanelViewController {
     public MenuItem miSearch;
     TaskApp main;
     ModelFactoryController singleton = ModelFactoryController.getInstance();
+    ArrayList<Task>tasksForNotification;
     Common loggedCommon;
     public void setMain(TaskApp taskApp, Common loggedCommon) {
         this.main =taskApp;
@@ -66,8 +69,10 @@ public class UserPanelViewController {
                 for (Task task : activity.getTasksList()) {
                     TreeItem<Completable> taskItem = createCompletableTreeItem(task);
                     activityItem.getChildren().add(taskItem);
+                    if (task.isDueSoon()){
+                        tasksForNotification.add(task);
+                    }
                 }
-
                 processItem.getChildren().add(activityItem);
             }
             treeProcess.getRoot().getChildren().add(processItem);
@@ -85,9 +90,10 @@ public class UserPanelViewController {
         } else if (completable instanceof MyProcess && ((MyProcess) completable).isComplete()) {
             treeItem.setGraphic(createDisabledGraphic(completable.toString()));
         }
-
         return treeItem;
     }
+
+
 
     private Node createDisabledGraphic(String text) {
         Text textNode = new Text(text);
@@ -96,4 +102,23 @@ public class UserPanelViewController {
         return textNode;
     }
 
+    public void onNotificacionesCLick(ActionEvent event) {
+        if (!rmiEmail.isSelected()&&!rmiHere.isSelected()){
+            Alerta.saltarAlertaError("Debe seleccionar una preferencia de notificación en el menú superior izquierdo");
+        }
+        else {
+            if (rmiEmail.isSelected()){
+
+            }
+            if (rmiHere.isSelected()){
+                for(Task task : tasksForNotification){
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Tarea a punto de vencer");
+                    alert.setHeaderText("La tarea '" + task.getDescription() + "' está a punto de vencer.");
+                    alert.setContentText("La fecha límite es " + task.getMaxDay());
+                    alert.showAndWait();
+                }
+            }
+        }
+    }
 }

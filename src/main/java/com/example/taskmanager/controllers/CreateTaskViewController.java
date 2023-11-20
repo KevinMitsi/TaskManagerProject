@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
@@ -83,7 +84,15 @@ public class CreateTaskViewController {
             if (rbEnd.isSelected()){
                 try{
                     Task task = new Task("T"+cbActividades.getValue().getTasksList().size()+1,tfDescrpcion.getText(),cbObligatoia.getValue(), LocalDateTime.of(dpMax.getValue(), LocalTime.MIDNIGHT));
-                    admin.createTaskAtLast(cbActividades.getValue(),cbActividades.getValue().getTasksList().getLast(),task);
+                    Activity activity = cbActividades.getValue();
+                    if (activity.getTasksList().size()==0){
+                        admin.createTaskAtLast(activity,null,task);
+                    }
+                    else{
+                        admin.createTaskAtLast(activity,activity.getTasksList().getLast(),task);
+                    }
+                    Alerta.saltarAlertaInformacion("La tarea fue creada correctamente");
+                    limpiarCampos();
                 } catch (ProcessException e) {
                     Alerta.saltarAlertaError(e.getMessage());
                 }
@@ -99,7 +108,7 @@ public class CreateTaskViewController {
         if(!cbTasks.isDisable()){
             return !tfDescrpcion.getText().isBlank() && (rbEnd.isSelected()||rbPosicion.isSelected()) &&cbTasks.getValue()!=null&& cbActividades.getValue()!=null && cbObligatoia.getValue()!=null && dpMax.getValue()!=null;
         }
-        return !tfDescrpcion.getText().isBlank() && (rbEnd.isSelected()||rbPosicion.isSelected()) && cbActividades.getValue()!=null && cbObligatoia.getValue()!=null && dpMax.getValue()!=null;
+        return !tfDescrpcion.getText().isBlank() && (rbEnd.isSelected()||rbPosicion.isSelected()) && cbActividades.getValue()!=null && cbObligatoia.getValue()!=null && (dpMax.getValue()!=null&&dpMax.getValue().isAfter(LocalDate.now()));
     }private void limpiarCampos() {
         tfDescrpcion.setText("");
         cbActividades.setValue(null);
@@ -112,7 +121,7 @@ public class CreateTaskViewController {
 
     @FXML
     void initialize(){
-
+        cbObligatoia.getItems().addAll(true,false);
     }
 
 }
