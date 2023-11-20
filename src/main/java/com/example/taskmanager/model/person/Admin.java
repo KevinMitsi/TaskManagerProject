@@ -89,13 +89,12 @@ public class Admin implements Serializable {
         }
     }
 
-    public  void createProcess(String id, String name) throws ProcessException {
+    public  void createProcess(String id, String name, Common common) throws ProcessException {
         MyProcess process = new MyProcess(id, name);
-        if (createdProcesses.contains(process)) {
-            throw new ProcessException("This process is already created in your processes");
-        } else {
-            createdProcesses.addEnd(process);
+        if (common.getProcesses().containsValue(process)) {
+            throw new ProcessException("This process is already created in this user processes");
         }
+        common.getProcesses().put(id,process);
     }
 
     public  void createActivityGivingName(MyProcess process, Activity activity, Activity newActivity) throws ProcessException {

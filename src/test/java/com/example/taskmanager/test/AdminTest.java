@@ -41,11 +41,12 @@ class AdminTest {
     @Test
     void createProcess() {
         Admin admin = new Admin("admin","a");
+        Common common = new Common("kevin","1004","asdas@gmail.com");
         // Test normal case
-        assertDoesNotThrow(() -> admin.createProcess("P1", "Process 1"));
+        assertDoesNotThrow(() -> admin.createProcess("P1", "Process 1",common));
 
         // Test when the process is already created
-        assertThrows(ProcessException.class, () -> admin.createProcess("P1", "Process 1"));
+        assertThrows(ProcessException.class, () -> admin.createProcess("P1", "Process 1",common));
     }
 
     @Test

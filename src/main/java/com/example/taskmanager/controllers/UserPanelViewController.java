@@ -108,7 +108,15 @@ public class UserPanelViewController {
             Alerta.saltarAlertaError("Debe seleccionar una preferencia de notificación en el menú superior izquierdo");
         }
         else {
-
+            if (rmiEmail.isSelected()){
+                for(Task task : tasksForNotification){
+                    EmailThread emailThread = new EmailThread("TAREA A PUNTO DE FINALIZAR", "Esta tarea: "+task.getDescription()+ " está apunto de terminar su tiempo de",loggedCommon.getEmail());
+                    emailThread.start();
+                    while (emailThread.isRunning()){
+                        Alerta.saltarAlertaAdvertencia("Enviando correo por favor espere");
+                    }
+                }
+            }
             if (rmiHere.isSelected()){
                 for(Task task : tasksForNotification){
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
