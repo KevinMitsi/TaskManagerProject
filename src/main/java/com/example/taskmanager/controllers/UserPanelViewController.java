@@ -29,6 +29,7 @@ public class UserPanelViewController {
     public RadioMenuItem rmiEmail;
     public MenuItem mIExit;
     public MenuItem miSearch;
+    public MenuItem miSearch1;
     TaskApp main;
     ModelFactoryController singleton = ModelFactoryController.getInstance();
     ArrayList<Task>tasksForNotification;
@@ -37,14 +38,15 @@ public class UserPanelViewController {
         this.main =taskApp;
         this.loggedCommon = loggedCommon;
         lblBienvenida.setText("Bienvenido, " + loggedCommon.getName());
+        tasksForNotification = new ArrayList<>();
         fillTreeView();
     }
 
-    public void onRequestMenu() {
+    public void onRequestMenu() throws IOException {
         TreeItem<Completable>selected = treeProcess.getSelectionModel().getSelectedItem();
         if (selected!=null){
             if (selected.getValue() instanceof Task){
-                main.abrirExpandirTarea((Task)selected.getValue());
+                main.abrirExpandirTarea((Task)selected.getValue(),loggedCommon);
             }
         }
     }
@@ -56,6 +58,7 @@ public class UserPanelViewController {
     public void onSearchMenuItem() {
         main.abriBuscarTarea();
     }
+
 
 
     private void fillTreeView() {
@@ -110,7 +113,7 @@ public class UserPanelViewController {
         else {
             if (rmiEmail.isSelected()){
                 for(Task task : tasksForNotification){
-                    EmailThread emailThread = new EmailThread("TAREA A PUNTO DE FINALIZAR", "Esta tarea: "+task.getDescription()+ " está apunto de terminar su tiempo de",loggedCommon.getEmail());
+                    EmailThread emailThread = new EmailThread("TAREA A PUNTO DE FINALIZAR", "Esta tarea: "+task.getDescription()+ " está apunto de terminar su tiempo de finalizar su plazo para vencerse",loggedCommon.getEmail());
                     emailThread.start();
                     while (emailThread.isRunning()){
                         Alerta.saltarAlertaAdvertencia("Enviando correo por favor espere");
@@ -127,5 +130,9 @@ public class UserPanelViewController {
                 }
             }
         }
+    }
+
+    public void onSearchMenuItem1() {
+        main.abrirBuscarActividad();
     }
 }

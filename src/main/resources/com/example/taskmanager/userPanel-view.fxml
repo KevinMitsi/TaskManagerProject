@@ -26,9 +26,10 @@
               <MenuItem fx:id="mIExit" mnemonicParsing="false" onAction="#onExitMenuItem" text="Salir" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Tareas">
+          <Menu mnemonicParsing="false" text="Buscar">
             <items>
-              <MenuItem fx:id="miSearch" mnemonicParsing="false" onAction="#onSearchMenuItem" text="Search" />
+              <MenuItem fx:id="miSearch" mnemonicParsing="false" onAction="#onSearchMenuItem" text="Tarea" />
+                  <MenuItem fx:id="miSearch1" mnemonicParsing="false" onAction="#onSearchMenuItem1" text="Actividad" />
             </items>
           </Menu>
         </menus>
