@@ -23,6 +23,8 @@ public class TaskManager implements Serializable {
         processes = new SimpleLinkedList<>();
     }
 
+    //----------------------Getters Setters----------------------------------------------------------
+
     public Map<String, User> getUserMap() {
         return userMap;
     }
@@ -31,6 +33,7 @@ public class TaskManager implements Serializable {
         return processes;
     }
 
+    //----------------------Login----------------------------------------------------------
 
     public Common login(String username, String password) throws UserNotFoundException {
         User user = userMap.get(password);
@@ -40,6 +43,9 @@ public class TaskManager implements Serializable {
         return user.getAssociated();
     }
 
+    //----------------------Register----------------------------------------------------------
+
+
     public void registerCommon(User user) throws RegisterException {
         if (userMap.containsValue(user)){
             throw new RegisterException("This user is already crated");
@@ -48,6 +54,9 @@ public class TaskManager implements Serializable {
             userMap.put(user.getPassword(),user);
         }
     }
+
+    //----------------------Change activities----------------------------------------------------------
+
 
     public void changeActivities(Activity activity1, Activity activity2){
         Cola<Task>aux = activity1.getTasksList();

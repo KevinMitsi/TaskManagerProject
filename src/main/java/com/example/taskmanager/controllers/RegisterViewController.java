@@ -36,8 +36,6 @@ public class RegisterViewController {
                 verifyEmail();
                 Common common = new Common(tfName.getText(), tfId.getText(), tfEmail.getText());
                 singleton.getTaskManager().registerCommon(new User(tfUser.getText(), pfPassword.getText(), Rol.COMMON, common));
-                singleton.guardarResourceXML();
-                singleton.guardarResourceBinario();
                 Alerta.saltarAlertaInformacion("You've registered properly");
                 main.inicializarLogin();
             } catch (RegisterException e) {

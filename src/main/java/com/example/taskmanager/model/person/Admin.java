@@ -29,6 +29,9 @@ public class Admin implements Serializable {
     public Admin() {
     }
 
+    //----------------------Getters Setters----------------------------------------------------------
+
+
     public String getName() {
         return name;
     }
@@ -73,6 +76,8 @@ public class Admin implements Serializable {
         return Objects.hash(getId());
     }
 
+    //----------------------Assign Process to Employee----------------------------------------------------------
+
     public  void assignProcess(Common employee, MyProcess process) throws ProcessException {
         if (employee.getProcesses().containsValue(process)) {
             throw new ProcessException("This process is already assigned in your employee");
@@ -81,6 +86,8 @@ public class Admin implements Serializable {
         }
     }
 
+    //----------------------Add Employee----------------------------------------------------------
+
     public  void addEmployee(Common common) throws RegisterException {
         if (employees.containsValue(common)) {
             throw new RegisterException("This employee is already added in your list");
@@ -88,6 +95,7 @@ public class Admin implements Serializable {
             employees.put(common.getId(), common);
         }
     }
+    //----------------------Assign Process to Employee----------------------------------------------------------
 
     public  void createProcess(String id, String name, Common common) throws ProcessException {
         MyProcess process = new MyProcess(id, name);
@@ -97,6 +105,8 @@ public class Admin implements Serializable {
         common.getProcesses().put(id,process);
     }
 
+    //----------------------Create Activity in Process By Name----------------------------------------------------------
+
     public  void createActivityGivingName(MyProcess process, Activity activity, Activity newActivity) throws ProcessException {
         if (process.getTaskList().contains(newActivity)) {
             throw new ProcessException("This Activity is already inside this process");
@@ -105,6 +115,9 @@ public class Admin implements Serializable {
         }
     }
 
+    //----------------------Create Activity in Process At Last----------------------------------------------------------
+
+
     public  void createActivityAtLast(MyProcess process, Activity newActivity) throws ProcessException {
         if (process.getTaskList().contains(newActivity)) {
             throw new ProcessException("This Activity is already inside this process");
@@ -112,6 +125,7 @@ public class Admin implements Serializable {
             process.getTaskList().addEnd(newActivity);
         }
     }
+    //----------------------Create Activity in process using last----------------------------------------------------------
 
     public  void createActivityUsingLast(MyProcess process, Activity lastUsed, Activity newActivity) throws ProcessException {
         if (process.getTaskList().contains(newActivity)) {

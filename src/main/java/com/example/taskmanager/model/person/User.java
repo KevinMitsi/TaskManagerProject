@@ -18,6 +18,8 @@ public class User implements Serializable {
     public User() {
     }
 
+    //----------------------Getters Setters and Override code----------------------------------------------------------
+
     public String getName() {
         return username;
     }

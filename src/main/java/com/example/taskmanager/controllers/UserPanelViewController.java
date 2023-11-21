@@ -51,8 +51,8 @@ public class UserPanelViewController {
         main.inicializarLogin();
     }
 
-    public void onSearchMenuItem() {
-        main.abriBuscarTarea();
+    public void onSearchMenuItem() throws IOException {
+        main.abriBuscarTarea(loggedCommon);
     }
 
 
@@ -127,8 +127,8 @@ public class UserPanelViewController {
         }
     }
 
-    public void onSearchMenuItem1() {
-        main.abrirBuscarActividad();
+    public void onSearchMenuItem1() throws IOException {
+        main.abrirBuscarActividad(loggedCommon);
     }
 
     public void onMouseCLicked(MouseEvent mouseEvent) throws IOException {
