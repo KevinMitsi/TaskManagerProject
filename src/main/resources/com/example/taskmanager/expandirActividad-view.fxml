@@ -12,7 +12,7 @@
             fx:controller="com.example.taskmanager.controllers.ExpandirActividadViewController"
             prefHeight="271.0" prefWidth="354.0">
     <children>
-        <Label layoutX="99.0" layoutY="1.0" text="Expansión de Tarea">
+        <Label layoutX="99.0" layoutY="1.0" text="Expansión de Actividad">
             <font>
                 <Font name="System Bold" size="17.0" />
             </font>

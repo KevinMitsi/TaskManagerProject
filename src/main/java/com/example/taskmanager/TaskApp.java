@@ -80,7 +80,14 @@ public class TaskApp extends Application {
         stage.show();
     }
 
-    public void abriBuscarTarea() {
+    public void abriBuscarTarea(Common loggedCommon) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(TaskApp.class.getResource("searchTask-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        SearchTaskViewController controller = fxmlLoader.getController();
+        controller.setMain(this, loggedCommon);
+        stage.setTitle("Panel "+loggedCommon.getName());
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void abrirExpandirTarea(Task value, Common logged) throws IOException {
@@ -88,7 +95,7 @@ public class TaskApp extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         ExpandirTareaViewController controller = fxmlLoader.getController();
         controller.setMain(this, value,logged);
-        stage.setTitle("Agregar Actividad");
+        stage.setTitle("Expandir Tarea");
         stage.setScene(scene);
         stage.show();
     }
@@ -124,9 +131,9 @@ public class TaskApp extends Application {
     }
 
     public void abrirCambiarActividades(Admin admin) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(TaskApp.class.getResource("cambiar-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(TaskApp.class.getResource("empleadoSelection-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        CambiarViewController controller = fxmlLoader.getController();
+        EmpleadoSelectionViewController controller = fxmlLoader.getController();
         controller.setMain(this, admin);
         stage.setTitle("Cambiar actividades");
         stage.setScene(scene);
@@ -163,7 +170,14 @@ public class TaskApp extends Application {
         stage.show();
     }
 
-    public void abrirBuscarActividad() {
+    public void abrirBuscarActividad(Common loggedCommon) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(TaskApp.class.getResource("searchActivity-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        SearchActivityViewController controller = fxmlLoader.getController();
+        controller.setMain(this, loggedCommon);
+        stage.setTitle("Panel "+loggedCommon.getName());
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void abrirExpandirActividad(Activity value, Common loggedCommon) throws IOException {
@@ -171,7 +185,7 @@ public class TaskApp extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         ExpandirActividadViewController controller = fxmlLoader.getController();
         controller.setMain(this, value,loggedCommon);
-        stage.setTitle("Agregar Actividad");
+        stage.setTitle("Ampliar Actividad");
         stage.setScene(scene);
         stage.show();
     }
@@ -181,9 +195,18 @@ public class TaskApp extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         ExpandirProcesoViewController controller = fxmlLoader.getController();
         controller.setMain(this, value,loggedCommon);
-        stage.setTitle("Agregar Actividad");
+        stage.setTitle("Ampliar Proceso");
         stage.setScene(scene);
         stage.show();
+    }
 
+    public void abrirChangeActivity(Common value, Admin admin) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(TaskApp.class.getResource("cambiar-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        CambiarViewController controller = fxmlLoader.getController();
+        controller.setMain(this, admin, value);
+        stage.setTitle("Cambiar actividades");
+        stage.setScene(scene);
+        stage.show();
     }
 }

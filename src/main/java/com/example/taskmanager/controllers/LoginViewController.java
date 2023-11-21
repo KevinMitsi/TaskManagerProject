@@ -47,13 +47,5 @@ public class LoginViewController {
 
     public void setMain(TaskApp taskApp) {
         this.main = taskApp;
-        DoubleLinkedList<Integer>list= new DoubleLinkedList<>();
-        list.addEnd(1);
-        list.addEnd(2);
-        list.addEnd(3);
-        list.addEnd(4);
-        list.addEnd(5);
-        list.addByIndex(2+1,7);
-        list.print();
     }
 }

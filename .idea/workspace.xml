@@ -4,42 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1215495d-8030-4154-8007-1a8ae570431f" name="Changes" comment="New tests crated and checked for the different methods cointed in Admin.java, TaskManager.java and Common.java">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/AgregarActividadViewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/AgregarProcesoViewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/AgregarTareaViewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/CambiarViewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/CreateProcessViewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/exceptions/CompleteException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/taskmanager/agregarActividad-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/taskmanager/agregarProceso-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/taskmanager/agregarTarea-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/taskmanager/cambiar-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/taskmanager/createProcess-view.fxml" afterDir="false" />
+    <list default="true" id="1215495d-8030-4154-8007-1a8ae570431f" name="Changes" comment="+++--">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/EmpleadoSelectionViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/SearchActivityViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/SearchTaskViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/taskmanager/searchActivity-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/taskmanager/searchTask-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/TaskApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/TaskApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/archivo/Log.log" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/archivo/Log.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/archivo/model.dat" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/archivo/model.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/AdminPanelViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/AdminPanelViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/CreateActivityViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/CreateActivityViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/CreateTaskViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/CreateTaskViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/HelloController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/CambiarViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/CambiarViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/LoginViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/LoginViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/ModelFactoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/ModelFactoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/RegisterViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/RegisterViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/UserPanelViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/UserPanelViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/listas/Cola.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/listas/Cola.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/model/mainClass/TaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/model/mainClass/TaskManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/model/person/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/model/person/Admin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/model/person/Common.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/model/person/Common.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/model/process/Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/model/process/Activity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/model/process/Completable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/model/process/Completable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/model/process/MyProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/model/process/MyProcess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/model/process/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/model/process/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/taskmanager/adminPanel-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/taskmanager/adminPanel-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/taskmanager/createActivity-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/taskmanager/createActivity-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/taskmanager/createTask-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/taskmanager/createTask-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/taskmanager/hello-view.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/taskmanager/userPanel-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/taskmanager/userPanel-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/taskmanager/test/AdminTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/taskmanager/test/AdminTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/model/person/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/taskmanager/model/person/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/taskmanager/assignProcees-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/taskmanager/empleadoSelection-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/taskmanager/cambiar-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/taskmanager/cambiar-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/taskmanager/expandirActividad-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/taskmanager/expandirActividad-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/taskmanager/expandirProceso-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/taskmanager/expandirProceso-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +69,8 @@
     "ignore.virus.scanning.warn.message": "true",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.keymap"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -99,6 +86,22 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration name="AdminTest.createProcess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TaskManager" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.taskmanager.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.taskmanager.test" />
+      <option name="MAIN_CLASS_NAME" value="com.example.taskmanager.test.AdminTest" />
+      <option name="METHOD_NAME" value="createProcess" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AdminTest.createTaskGivingPosition" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TaskManager" />
       <extension name="coverage">
@@ -161,29 +164,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TaskManagerTest.login" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TaskManager" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.taskmanager.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.taskmanager.test" />
-      <option name="MAIN_CLASS_NAME" value="com.example.taskmanager.test.TaskManagerTest" />
-      <option name="METHOD_NAME" value="login" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AdminTest.createProcess" />
         <item itemvalue="JUnit.AdminTest.createTaskGivingPosition" />
         <item itemvalue="JUnit.CommonTest" />
         <item itemvalue="JUnit.TaskManagerTest" />
         <item itemvalue="JUnit.TaskManagerTest.changeActivities" />
-        <item itemvalue="JUnit.TaskManagerTest.login" />
       </list>
     </recent_temporary>
   </component>
@@ -228,7 +215,39 @@
       <option name="project" value="LOCAL" />
       <updated>1700404776039</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="+++--">
+      <option name="closed" value="true" />
+      <created>1700454533587</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1700454533587</updated>
+    </task>
+    <task id="LOCAL-00006" summary="+++--">
+      <option name="closed" value="true" />
+      <created>1700455390921</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1700455390921</updated>
+    </task>
+    <task id="LOCAL-00007" summary="+++--">
+      <option name="closed" value="true" />
+      <created>1700456151279</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1700456151279</updated>
+    </task>
+    <task id="LOCAL-00008" summary="+++--">
+      <option name="closed" value="true" />
+      <created>1700459495893</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1700459495893</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -247,6 +266,40 @@
     <MESSAGE value="new Modeling for the project has been addes" />
     <MESSAGE value="new methods controller and views added" />
     <MESSAGE value="New tests crated and checked for the different methods cointed in Admin.java, TaskManager.java and Common.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="New tests crated and checked for the different methods cointed in Admin.java, TaskManager.java and Common.java" />
+    <MESSAGE value="+++--" />
+    <option name="LAST_COMMIT_MESSAGE" value="+++--" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/UserPanelViewController.java</url>
+          <line>40</line>
+          <properties class="com.example.taskmanager.controllers.UserPanelViewController" method="onRequestMenu">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/CreateTaskViewController.java</url>
+          <line>70</line>
+          <properties class="com.example.taskmanager.controllers.CreateTaskViewController" method="onCrearClick">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/taskmanager/controllers/EmpleadoSelectionViewController.java</url>
+          <line>25</line>
+          <properties class="com.example.taskmanager.controllers.EmpleadoSelectionViewController" method="onAgregar">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

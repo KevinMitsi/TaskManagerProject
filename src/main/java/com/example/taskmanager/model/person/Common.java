@@ -23,6 +23,9 @@ public class Common implements Serializable {
 
     public Common() {}
 
+    //----------------------Getters Setters and Override code----------------------------------------------------------
+
+
     public String getName() {
         return name;
     }
@@ -67,15 +70,19 @@ public class Common implements Serializable {
         return Objects.hash(getId(), getEmail());
     }
 
-    public List<Task> searchTask(String word) {
-        List<Task> result = new ArrayList<>();
+
+    //----------------------Métodos de búsqueda----------------------------------------------------------
+
+
+    public ArrayList<Task> searchTask(String word) {
+        ArrayList<Task> result = new ArrayList<>();
         for (MyProcess process : processes.values()) {
             searchTaskRecursive(process, word, result);
         }
         return result;
     }
 
-    private void searchTaskRecursive(MyProcess process, String word, List<Task> result) {
+    private void searchTaskRecursive(MyProcess process, String word, ArrayList<Task> result) {
         for (Activity activities : process.getTaskList()) {
             for (Task task : activities.getTasksList()) {
                 if (task.getDescription().contains(word)) {
@@ -85,15 +92,15 @@ public class Common implements Serializable {
         }
     }
 
-    public List<Activity> searchActivity(String word) {
-        List<Activity> result = new ArrayList<>();
+    public ArrayList<Activity> searchActivity(String word) {
+        ArrayList<Activity> result = new ArrayList<>();
         for (MyProcess process : processes.values()) {
             searchActivityRecursive(process, word, result);
         }
         return result;
     }
 
-    private void searchActivityRecursive(MyProcess process, String word, List<Activity> result) {
+    private void searchActivityRecursive(MyProcess process, String word, ArrayList<Activity> result) {
         for (Activity activities : process.getTaskList()) {
             if (activities.getDescription().contains(word)) {
                 result.add(activities);
